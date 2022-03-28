@@ -1,9 +1,10 @@
 from functools import wraps
-from flask import request, Response
+from flask import request
 
 
 def validate_token(token):
-    print(token)
+    token["Access"]
+    user_id = ""
     return "hello"
 
 

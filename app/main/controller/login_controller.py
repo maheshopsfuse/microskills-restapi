@@ -1,7 +1,7 @@
 from flask import request
 from flask_restplus import Resource
 from app.main.services.login_service import login
-from app.main.utils.Validation import authenticate
+from app.main.utils.validation import authenticate
 from app.main.utils.controller_dto.error_dto import rep_error
 from app.main.utils.controller_dto.login_dto import LoginDto
 

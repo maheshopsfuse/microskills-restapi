@@ -1,7 +1,6 @@
 from random import randint
 from flask_restplus import Resource
-from flask import request
-from app.main.model.registration import User
+from app.main.model.registration import Users
 from app.main.utils.controller_dto.registration_dto import RegistrationDto
 from twilio.rest import Client
 from datetime import datetime
@@ -18,7 +17,7 @@ class Registration(Resource):
         self.client = Client(self.account_sid, self.auth_token)
 
     def get(self, type, phone, country):
-        user = User("Mahesh", "Nagmal", phone_number=phone)
+        user = Users("Mahesh", "Nagmal", phone_number=phone)
         date_time = datetime.now().isoformat()
         phone_number = country + phone
         otp = self.genrateOTP()

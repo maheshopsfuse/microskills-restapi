@@ -11,5 +11,6 @@ class LoginDto:
         'success': fields.String(required=True, description=' Status'),
         'id': fields.String(required=True, description='Id'),
         'email': fields.String(required=True, description='email address'),
-        'authorization': fields.String(required=True, description='Authorization')
+        'access_token': fields.String(required=True, description='Access Token'),
+        'refresh_token': fields.String(required=True, description='Refresh Token')
     })

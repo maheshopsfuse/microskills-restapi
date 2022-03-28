@@ -38,6 +38,7 @@ class DevelopmentConfig(Config):
     DATABASE_URI = 'localhost'
     DATABASE_PORT = 5432
     SQLALCHEMY_DATABASE_URI = f"postgresql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_URI}:{DATABASE_PORT}/{DATABASE_NAME}"
+    TIME = 3
 
 
 class TestingConfig(Config):
