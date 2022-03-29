@@ -11,8 +11,10 @@ class Skill(db.Model):
     phone_number = db.Column(db.String(20), nullable=False)
 
     status = db.Column(db.Integer, nullable=False, default=1)
-    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    created_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())
+    updated_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())
 
     def __init__(self,  category_name, category_icon, skill_name):
         self.category_name = category_name

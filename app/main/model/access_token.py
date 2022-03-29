@@ -10,7 +10,10 @@ class AccessToken(db.Model):
     access_token = db.Column(db.String(100), nullable=False)
     refresh_id = db.Column(UUID(as_uuid=True), db.ForeignKey('refresh_token.id'),
                            nullable=False)
-
+    expired_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())
     status = db.Column(db.Integer, nullable=False, default=1)
-    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    created_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())
+    updated_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())

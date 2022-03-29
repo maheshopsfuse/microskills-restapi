@@ -12,5 +12,7 @@ class UserSession(db.Model):
                         nullable=False)
 
     status = db.Column(db.Integer, nullable=False, default=1)
-    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    created_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())
+    updated_at = db.Column(
+        db.Numeric, default=datetime.datetime.utcnow().timestamp())

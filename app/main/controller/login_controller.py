@@ -13,7 +13,6 @@ rep_login = LoginDto.rep_login
 @api.route("api/login")
 class LoginController(Resource):
     @api.expect(_login, validate=True)
-    @authenticate
     def post(self):
         data = request.json
         rep, _ = login(data)
