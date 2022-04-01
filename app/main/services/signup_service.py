@@ -23,7 +23,7 @@ def save_user(data):
         db.session.commit()
         response_object = {
             "success": True,
-            "id": new_user.user_id,
+            "id": str(new_user.user_id),
             "refresh_token": refresh.refresh_token,
             "access_token": access.access_token,
             "email": new_user.email,
@@ -38,3 +38,13 @@ def save_user(data):
             'message': 'User already exists. Please Log in.',
         }
         return response_object, 409
+
+
+def getUserId(data):
+    access_token = data["Access"]
+    _, user_id, _ = access_token.split('.')
+    user = db.session.query(User).filter(
+        User.user_id == user_id)
+    if user:
+        return user_id
+    return None

@@ -31,3 +31,6 @@ class User(db.Model):
 
     refresh_token = db.relationship('RefreshToken',
                                     backref='users', uselist=False)
+
+    course = db.relationship('Course',
+                             backref='users')

@@ -6,7 +6,7 @@ class AccessTokenDto:
     token = api.model('AccessToken', {
         'refresh_token': fields.String(required=True, description='Access Token'),
     })
-    rep_token = api.model("Response", {
+    res_token = api.model("Response", {
         'success': fields.String(required=True, description='Status'),
         'access_token': fields.String(required=True, description='Authorization'),
     })

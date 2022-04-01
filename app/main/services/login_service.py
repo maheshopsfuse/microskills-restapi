@@ -19,7 +19,7 @@ def login(data):
             db.session.commit()
             response_object = {
                 'success': True,
-                "id": user.user_id,
+                "id": str(user.user_id),
                 "refresh_token": refresh.refresh_token,
                 "access_token": access.access_token,
                 "email": user.email
