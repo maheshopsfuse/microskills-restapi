@@ -1,5 +1,8 @@
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
+from app.main.model.lessons import Lesson
+from app.main.model.course import Course
+from app.main.model.skill import Skill
 from app.main import create_app, db
 from app import blueprint
 app = create_app('dev')

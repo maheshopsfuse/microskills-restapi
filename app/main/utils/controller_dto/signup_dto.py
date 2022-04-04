@@ -10,10 +10,11 @@ class SignUpDto:
         'password': fields.String(required=True, description='user password'),
         'role': fields.String(required=True, description='user role')
     })
-    rep_user = api.model("Response", {
+    res_user = api.model("Response", {
         'success': fields.String(required=True, description='Status'),
         'id': fields.String(required=True, description='Id'),
-        'authorization': fields.String(required=True, description='Authorization'),
+        'refresh_token': fields.String(required=True, description='Refresh Token'),
+        'access_token': fields.String(required=True, description='Access Token'),
         'email': fields.String(required=True, description='user email address'),
         'first_name': fields.String(required=True, description='user first name'),
         'last_name': fields.String(required=True, description='user last name'),

@@ -38,6 +38,8 @@ class DevelopmentConfig(Config):
     DATABASE_URI = 'localhost'
     DATABASE_PORT = 5432
     SQLALCHEMY_DATABASE_URI = f"postgresql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_URI}:{DATABASE_PORT}/{DATABASE_NAME}"
+    ACCESS_TOKEN_EXPIRE_IN_DAYS = 3
+    REFRESH_TOKEN_EXPIRE_IN_DAYS = 16
 
 
 class TestingConfig(Config):
@@ -58,6 +60,8 @@ class TestingConfig(Config):
         'host': f'mongodb://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_URI}:{DATABASE_PORT}/{DATABASE_NAME}?authSource={DATABASE_NAME}',
         'connect': False,
     }
+    ACCESS_TOKEN_EXPIRE_IN_DAYS = 3
+    REFRESH_TOKEN_EXPIRE_IN_DAYS = 16
 
 
 class ProductionConfig(Config):
@@ -87,6 +91,8 @@ class ProductionConfig(Config):
         'host': f'mongodb://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_URI}:{DATABASE_PORT}/{DATABASE_NAME}?authSource={DATABASE_NAME}',
         'connect': False,
     }
+    ACCESS_TOKEN_EXPIRE_IN_DAYS = 3
+    REFRESH_TOKEN_EXPIRE_IN_DAYS = 16
 
 
 config_by_name = dict(
