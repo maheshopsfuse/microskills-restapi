@@ -1,7 +1,5 @@
 import string
 import random
-import calendar
-import time
 
 from app.main import save
 from app.main.model.access_token import AccessToken

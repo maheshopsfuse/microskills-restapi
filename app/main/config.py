@@ -8,7 +8,7 @@ formatter = logging.Formatter(
     "%(asctime)s - %(levelname)s  %(name)s %(threadName)s :- %(message)s")
 
 handler = TimedRotatingFileHandler(
-    os.getenv('SERVER_LOG', 'log/MicroSkills-Server.log'), when="midnight", interval=1, encoding='utf8')
+    os.getenv('SERVER_LOG', 'app/log/MicroSkills-Server.log'), when="midnight", interval=1, encoding='utf8')
 handler.suffix = "%Y-%m-%d_%H-%M-%S"
 handler.setFormatter(formatter)
 logger = logging.getLogger()

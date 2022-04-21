@@ -1,12 +1,15 @@
+from app.main.model.role import Role
 from app.main.model.user import User
 from app.main import db, save
+from app.main.model.user_role import UserRole
 from app.main.utils.password_encryption import generateSalt, generatePassword
 from app.main.utils.jwt_token import saveToken
 
 
 def save_user(data):
     user = User.query.filter_by(email=data['email']).first()
-    if not user:
+    role = checkRole(data['role'])
+    if not user and role:
         salt = generateSalt()
         password = generatePassword(data['password'], salt)
         password = str(password) + ':' + str(salt)
@@ -15,9 +18,10 @@ def save_user(data):
             first_name=data['first_name'],
             last_name=data['last_name'],
             password=password,
-            role=data['role'],
         )
         save(new_user)
+        user_role = UserRole(user_id=new_user.user_id, role_id=role.id)
+        save(user_role)
         refresh, access = saveToken(new_user.user_id)
         new_user.access_token.append(access)
         db.session.commit()
@@ -29,7 +33,7 @@ def save_user(data):
             "email": new_user.email,
             "first_name": new_user.first_name,
             "last_name": new_user.last_name,
-            "role": new_user.role
+            "role": role.role_name
         }
         return response_object, 201
     else:
@@ -48,3 +52,8 @@ def getUserId(data):
     if user:
         return user_id
     return None
+
+
+def checkRole(role):
+    role = db.session.query(Role).filter(Role.role_name == role).first()
+    return role

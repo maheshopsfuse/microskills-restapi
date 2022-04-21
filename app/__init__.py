@@ -8,6 +8,7 @@ from app.main.controller.access_token_controller import api as access_ns
 from app.main.controller.course_controller import api as course_ns
 from app.main.controller.lesson_controller import api as lesson_ns
 from app.main.controller.skill_controller import api as skill_ns
+from app.main.controller.role_controller import api as role_ns
 
 blueprint = Blueprint('api', __name__)
 authorizations = {
@@ -35,3 +36,4 @@ api.add_namespace(access_ns, path='/')
 api.add_namespace(course_ns, path='/')
 api.add_namespace(lesson_ns, path='/')
 api.add_namespace(skill_ns, path='/')
+api.add_namespace(role_ns, path='/')

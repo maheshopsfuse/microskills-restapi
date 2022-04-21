@@ -3,6 +3,8 @@ from flask_script import Manager
 from app.main.model.lessons import Lesson
 from app.main.model.course import Course
 from app.main.model.skill import Skill
+from app.main.model.user_role import UserRole
+from app.main.model.role import Role
 from app.main import create_app, db
 from app import blueprint
 app = create_app('dev')

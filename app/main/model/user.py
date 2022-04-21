@@ -18,7 +18,6 @@ class User(db.Model):
     last_name = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(20), nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
-    role = db.Column(db.String(20), nullable=False)
 
     status = db.Column(db.Integer, nullable=False, default=1)
     created_at = db.Column(
@@ -31,6 +30,9 @@ class User(db.Model):
 
     refresh_token = db.relationship('RefreshToken',
                                     backref='users', uselist=False)
+
+    user_role = db.relationship('UserRole',
+                                backref='users', uselist=False)
 
     course = db.relationship('Course',
                              backref='users')
